@@ -1,6 +1,6 @@
 HELP.md
+.gradle
 build/
-!gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
@@ -39,4 +39,7 @@ hs_err_pid*
 
 # h2DB
 h2**
+
+# gradle wrapper
+!gradle/wrapper/gradle-wrapper.jar
 
