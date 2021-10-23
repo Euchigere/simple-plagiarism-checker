@@ -7,7 +7,8 @@ plugins {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication'
+                'Main-Class': 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication',
+                'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
         )
     }
 }
