@@ -8,14 +8,17 @@ springBoot {
     mainClass = 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication'
 }
 
-//jar {
-//    manifest {
-//        attributes(
-//                'Main-Class': 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication',
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication',
 //                'Class-Path': configurations.runtimeClasspath.files.collect { "lib/$it.name" }.join(' ')
-//        )
-//    }
-//}
+        )
+    }
+    from {
+            (configurations.runtimeClasspath).collect {it.isDirectory() ? it : zipTree(it)}
+    }
+}
 
 group = 'com.emmanuelc'
 version = '0.0.1-SNAPSHOT'
