@@ -1,6 +1,5 @@
 package com.emmanuelc.plagiarismchecker.security;
 
-import com.emmanuelc.plagiarismchecker.domain.models.Role;
 import com.emmanuelc.plagiarismchecker.domain.models.User;
 import com.emmanuelc.plagiarismchecker.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
