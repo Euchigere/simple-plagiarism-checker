@@ -1,34 +1,16 @@
 plugins {
-    id 'org.springframework.boot' version '2.5.6'
+    id 'org.springframework.boot' version '2.4.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
-}
-
-springBoot {
-    mainClass = 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication'
 }
 
 jar {
     manifest {
         attributes(
-                'Main-Class': 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication',
-//                'Class-Path': configurations.runtimeClasspath.files.collect { "lib/$it.name" }.join(' ')
+                'Main-Class': 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication'
         )
     }
-    from {
-            duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
-            (configurations.runtimeClasspath).collect {it.isDirectory() ? it : zipTree(it)}
-    }
 }
-
-//task stage(dependsOn: ['build', 'clean'])
-//
-//task copyToLib(type: Copy) {
-//    into "$buildDir/libs"
-//    from(configurations.implementation)
-//}
-//
-//stage.dependsOn(copyToLib)
 
 group = 'com.emmanuelc'
 version = '0.0.1-SNAPSHOT'
