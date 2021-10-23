@@ -8,6 +8,9 @@ springBoot {
     mainClass = 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication'
 }
 
+tasks.withType<Jar> { duplicatesStrategy = DuplicatesStrategy.EXCLUDE }
+
+
 jar {
 //    manifest {
 //        attributes(
@@ -16,6 +19,7 @@ jar {
 //        )
 //    }
     from {
+
             (configurations.runtimeClasspath).collect {it.isDirectory() ? it : zipTree(it)}
     }
 }
