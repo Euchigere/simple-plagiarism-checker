@@ -4,8 +4,6 @@ server:
     context-path: "/api/v1"
 
 spring:
-  main:
-    web-application-type: none
   datasource:
     url: jdbc:h2:file:./h2db;DB_CLOSE_DELAY=-1
     driver-class-name: org.h2.Driver
