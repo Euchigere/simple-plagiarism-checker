@@ -1,1 +1,32 @@
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: "/api/v1"
 
+spring:
+  datasource:
+    url: jdbc:h2:file:./h2db;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate: org.hibernate.dialect.H2Dialect
+  #    show-sql: true
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        trace: false
+        web-allow-others: false
+
+application:
+  jwt:
+    secret-key: ${SECRET_KEY:notsosecretnow}
+    validity: ${TOKEN_VALIDITY_PERIOD:1800000}  # Token validity period in milliseconds
