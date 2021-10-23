@@ -9,12 +9,12 @@ springBoot {
 }
 
 jar {
-//    manifest {
-//        attributes(
-//                'Main-Class': 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication',
-////                'Class-Path': configurations.runtimeClasspath.files.collect { "lib/$it.name" }.join(' ')
-//        )
-//    }
+    manifest {
+        attributes(
+                'Main-Class': 'com.emmanuelc.plagiarismchecker.PlagiarismCheckerApplication',
+//                'Class-Path': configurations.runtimeClasspath.files.collect { "lib/$it.name" }.join(' ')
+        )
+    }
     from {
             duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
             (configurations.runtimeClasspath).collect {it.isDirectory() ? it : zipTree(it)}
